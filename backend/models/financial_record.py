@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from .base import Base
 
-Class FinancialRecord(Base):
+class FinancialRecord(Base):
     __tablename__ = 'financial_records'
     id=Column(Integer, primary_key=True)
     amount=Column(Integer, nullable=False)
