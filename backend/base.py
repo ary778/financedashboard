@@ -1,10 +1,14 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker
-from .config import settings  # Import your settings
+from sqlalchemy.orm import declarative_base, sessionmaker
+from .config import settings
 
-# No more hardcoded strings!
-engine = create_async_engine(settings.DATABASE_URL, echo=True)
+# SQLAlchemy Base for ORM models
+Base = declarative_base()
 
+# Create async engine
+engine = create_async_engine(settings.DATABASE_URL, echo=False)
+
+# Session factory
 AsyncSessionLocal = sessionmaker(
     bind=engine,
     class_=AsyncSession,
@@ -13,6 +17,7 @@ AsyncSessionLocal = sessionmaker(
 
 async def get_db():
     async with AsyncSessionLocal() as session:
-        yield session
-        # Tip: Only commit here if you want EVERY GET request to commit. 
-        # Usually, it's safer to call await db.commit() inside your POST/PUT routes.
+        try:
+            yield session
+        finally:
+            await session.close()
