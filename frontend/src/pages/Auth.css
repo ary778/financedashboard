@@ -1,0 +1,122 @@
+.auth-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  margin: auto;
+}
+
+.auth-header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.auth-header h1 {
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+  font-size: 28px;
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.auth-form {
+  margin-bottom: var(--spacing-lg);
+}
+
+.auth-footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger-red);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 14px;
+}
+
+.success-message {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success-green);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: 14px;
+}
+
+.demo-info {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-lg);
+}
+
+.auth-illustration {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, rgba(0, 102, 255, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.illustration-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.chart-visualization {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  height: 200px;
+  opacity: 0.8;
+}
+
+.bar {
+  background: linear-gradient(180deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  width: 40px;
+}
+
+.bar-1 { height: 80px; }
+.bar-2 { height: 120px; }
+.bar-3 { height: 100px; }
+.bar-4 { height: 140px; }
+
+@media (max-width: 768px) {
+  .auth-container {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-illustration {
+    display: none;
+  }
+
+  .auth-card {
+    max-width: 100%;
+  }
+}
